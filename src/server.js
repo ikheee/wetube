@@ -1,5 +1,6 @@
 // const express = require('express');
 import express from 'express';
+import morgan from 'morgan';
 
 const app = express();
 
@@ -21,6 +22,8 @@ const privateMiddleware = (req, res, next) => {
 
 const handleListenging = () =>
   console.log(`Listening on: http://localhost:${port}`);
+
+app.use(morgan('dev'));
 
 app.use(logger, privateMiddleware);
 
